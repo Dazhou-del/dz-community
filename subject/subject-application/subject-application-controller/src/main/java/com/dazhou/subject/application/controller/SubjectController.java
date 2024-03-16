@@ -17,6 +17,12 @@ import javax.annotation.Resource;
 public class SubjectController {
     @Resource
     private SubjectCategoryServiceImpl subjectCategoryService;
+
+
+    /**
+     * 测试接口
+     * @return
+     */
     @GetMapping("/test")
     private String test(){
         LambdaQueryWrapper<SubjectCategory> queryWrapper = new LambdaQueryWrapper<>();

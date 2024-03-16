@@ -4,14 +4,13 @@ spring:
   # DataSource Config
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/community?useSSL=FALSE&serverTimezone=UTC
-    username: root
-    password: dazhou520
+    url: jdbc:mysql://localhost:3306/community?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf8&useSSL=false&
+    username: ENC(MciqoonXkskKLYaZYQry7w==)
+    password: ENC(BBt+TI4SfyV1kfEsFpPaqupPb3L9ppSx)
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       initial-size: 20
       min-idle: 20
-      connectionProperties: config.decrypt=true;config.decrypt.key=${publicKey};
       max-active: 100
       max-wait: 60000
       stat-view-servlet:
@@ -28,3 +27,7 @@ spring:
             enabled: true
           config:
             enabled: true
+jasypt:
+  encryptor:
+    #该密钥只用来生成密文使用，打包时要删掉，否则容易被别人看到密钥来破解密文
+    password: dazhou
