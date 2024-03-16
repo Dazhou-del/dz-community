@@ -29,4 +29,13 @@ public class SubjectController {
         queryWrapper.eq(SubjectCategory::getId, 1L);
         return subjectCategoryService.getOne(queryWrapper).getCategoryName();
     }
+
+    @GetMapping("/axx")
+    private String axx(){
+        LambdaQueryWrapper<SubjectCategory> queryWrapper = new LambdaQueryWrapper<>();
+        queryWrapper.eq(SubjectCategory::getId, 1L);
+        return subjectCategoryService.getOne(queryWrapper).getCategoryName();
+    }
+
+
 }
