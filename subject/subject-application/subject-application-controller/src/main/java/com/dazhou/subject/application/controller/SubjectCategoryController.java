@@ -7,9 +7,11 @@ import com.dazhou.subject.common.entity.Result;
 import com.dazhou.subject.domain.entity.SubjectCategoryBo;
 import com.dazhou.subject.domain.service.SubjectCategoryDomainService;
 import com.dazhou.subject.infra.basic.service.impl.SubjectCategoryServiceImpl;
+import com.google.common.base.Preconditions;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
@@ -37,12 +39,18 @@ public class SubjectCategoryController {
             if (log.isInfoEnabled()) {
                 log.info("SubjectCategoryController.add.dto:{}", JSON.toJSONString(subjectCategoryDto));
             }
+            //断言的形式校验参数
+            Preconditions.checkNotNull(subjectCategoryDto.getCategoryType(),"分类类型不能为空");
+            Preconditions.checkNotNull(subjectCategoryDto.getParentId(),"父级Iddf不能为空");
+            Preconditions.checkArgument(StringUtils.isEmpty(subjectCategoryDto.getCategoryName()),"分类名称不能为空");
+
             SubjectCategoryBo subjectCategoryBo = SubjectCategoryDTOConverter.INSTANCE
                     .convertBoToCategory(subjectCategoryDto);
             subjectCategoryDomainService.add(subjectCategoryBo);
             return Result.ok();
         } catch (Exception e) {
-            return Result.fail();
+            log.error("SubjectCategoryController.add.dto:{}",e.getMessage(),e);
+            return Result.fail(e.getMessage());
         }
 
     }
