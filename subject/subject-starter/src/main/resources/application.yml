@@ -31,3 +31,6 @@ jasypt:
   encryptor:
     #该密钥只用来生成密文使用，打包时要删掉，否则容易被别人看到密钥来破解密文
     password: dazhou
+logging:
+  config:
+    classpath: log4j2-spring.xml

@@ -1,14 +1,16 @@
 package com.dazhou.subject.application.controller;
 
+import com.alibaba.fastjson.JSON;
 import com.dazhou.subject.application.convert.SubjectCategoryDTOConverter;
 import com.dazhou.subject.application.dto.SubjectCategoryDto;
 import com.dazhou.subject.common.entity.Result;
 import com.dazhou.subject.domain.entity.SubjectCategoryBo;
 import com.dazhou.subject.domain.service.SubjectCategoryDomainService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import com.dazhou.subject.infra.basic.service.impl.SubjectCategoryServiceImpl;
+import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 
@@ -19,14 +21,22 @@ import javax.annotation.Resource;
  */
 @RestController
 @RequestMapping("/subject/category")
+@Slf4j
 public class SubjectCategoryController {
 
     @Resource
     private SubjectCategoryDomainService subjectCategoryDomainService;
 
-    @PostMapping("add")
-    public Result<Boolean> add(SubjectCategoryDto subjectCategoryDto){
+    @Resource
+    private SubjectCategoryServiceImpl subjectCategoryService;
+
+    @PostMapping("/add")
+    public Result<Boolean> add(@RequestBody SubjectCategoryDto subjectCategoryDto) {
         try {
+//            这样写性能高
+            if (log.isInfoEnabled()) {
+                log.info("SubjectCategoryController.add.dto:{}", JSON.toJSONString(subjectCategoryDto));
+            }
             SubjectCategoryBo subjectCategoryBo = SubjectCategoryDTOConverter.INSTANCE
                     .convertBoToCategory(subjectCategoryDto);
             subjectCategoryDomainService.add(subjectCategoryBo);
@@ -34,5 +44,21 @@ public class SubjectCategoryController {
         } catch (Exception e) {
             return Result.fail();
         }
+
+    }
+
+    @DeleteMapping("/delete")
+    public Result<Boolean> delete(@Param("Id") Long Id){
+//        try {
+        //这样写性能高
+//            if (log.isInfoEnabled()){
+//                log.info("SubjectCategoryController.add.dto:{}", JSON.toJSONString(subjectCategoryDto));
+//            }
+        subjectCategoryService.removeById(Id);
+//        subjectCategoryDomainService.add(subjectCategoryBo);
+        return Result.ok();
+//        } catch (Exception e) {
+//            return Result.fail();
+//        }
     }
 }

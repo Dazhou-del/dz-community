@@ -1,6 +1,7 @@
 package com.dazhou.subject.common.enums;
 
 
+import lombok.Data;
 import lombok.Getter;
 
 /**
@@ -9,6 +10,7 @@ import lombok.Getter;
  * @create 2024-03-16 17:03
  */
 @Getter
+
 public enum ResultCodeEnum {
 
     SUCCESS(200,"成功"),
