@@ -13,7 +13,7 @@ import java.util.List;
  */
 @Mapper
 public interface SubjectCategoryConverter {
-    SubjectCategoryConverter INSTANCE=Mappers.getMapper(SubjectCategoryConverter .class);
+    SubjectCategoryConverter INSTANCE=Mappers.getMapper(SubjectCategoryConverter.class);
 
     SubjectCategory convertBoToCategory(SubjectCategoryBo subjectCategoryBo);
 
