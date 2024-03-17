@@ -1,10 +1,15 @@
 package com.dazhou.subject.infra.basic.service.impl;
 
+import cn.hutool.core.util.ObjectUtil;
+import cn.hutool.core.util.StrUtil;
+import com.baomidou.mybatisplus.core.conditions.update.LambdaUpdateWrapper;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.dazhou.subject.infra.basic.entity.SubjectCategory;
 import com.dazhou.subject.infra.basic.service.SubjectCategoryService;
 import com.dazhou.subject.infra.basic.mapper.SubjectCategoryMapper;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
 
@@ -22,6 +27,11 @@ public class SubjectCategoryServiceImpl extends ServiceImpl<SubjectCategoryMappe
     @Override
     public void insert(SubjectCategory subjectCategory) {
         subjectCategoryMapper.insert(subjectCategory);
+    }
+
+    @Override
+    public void update(SubjectCategory subjectCategory) {
+        subjectCategoryMapper.updateById(subjectCategory);
     }
 }
 

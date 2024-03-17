@@ -25,4 +25,11 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
                 .convertBoToCategory(subjectCategoryBo);
         subjectCategoryService.insert(subjectCategory);
     }
+
+    @Override
+    public void update(SubjectCategoryBo subjectCategoryBo) {
+        SubjectCategory subjectCategory = SubjectCategoryConverter.INSTANCE
+                .convertBoToCategory(subjectCategoryBo);
+        subjectCategoryService.update(subjectCategory);
+    }
 }

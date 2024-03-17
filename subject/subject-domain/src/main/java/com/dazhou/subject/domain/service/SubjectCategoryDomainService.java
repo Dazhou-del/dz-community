@@ -9,4 +9,6 @@ import com.dazhou.subject.domain.entity.SubjectCategoryBo;
 public interface SubjectCategoryDomainService {
 
     void add(SubjectCategoryBo subjectCategoryBo);
+
+    void update(SubjectCategoryBo subjectCategoryBo);
 }
