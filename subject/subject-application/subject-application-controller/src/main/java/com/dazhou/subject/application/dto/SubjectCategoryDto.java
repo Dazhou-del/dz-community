@@ -6,6 +6,7 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 题目分类
@@ -40,5 +41,13 @@ public class SubjectCategoryDto implements Serializable {
      */
     private Long parentId;
 
+    /**
+     * 数量
+     */
+    private Integer count;
 
+    /**
+     * 标签信息
+     */
+    private List<SubjectCategoryDto> labelDTOList;
 }

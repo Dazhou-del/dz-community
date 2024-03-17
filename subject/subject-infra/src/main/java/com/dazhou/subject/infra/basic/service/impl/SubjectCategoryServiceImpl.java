@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
 * @author da zhou
@@ -32,6 +33,16 @@ public class SubjectCategoryServiceImpl extends ServiceImpl<SubjectCategoryMappe
     @Override
     public void update(SubjectCategory subjectCategory) {
         subjectCategoryMapper.updateById(subjectCategory);
+    }
+
+    @Override
+    public List<SubjectCategory> queryCategory(SubjectCategory subjectCategory) {
+        return subjectCategoryMapper.queryAll(subjectCategory);
+    }
+
+    @Override
+    public Integer querySubjectCount(Long id) {
+        return subjectCategoryMapper.querySubjectCount(id);
     }
 }
 
