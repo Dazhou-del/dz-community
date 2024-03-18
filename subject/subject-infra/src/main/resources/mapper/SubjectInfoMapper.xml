@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.dazhou.subject.infra.basic.mapper.SubjectInfoMapper">
+
+    <resultMap id="BaseResultMap" type="com.dazhou.subject.infra.basic.entity.SubjectInfo">
+            <id property="id" column="id" jdbcType="BIGINT"/>
+            <result property="subjectName" column="subject_name" jdbcType="VARCHAR"/>
+            <result property="subjectDifficult" column="subject_difficult" jdbcType="TINYINT"/>
+            <result property="settleName" column="settle_name" jdbcType="VARCHAR"/>
+            <result property="subjectType" column="subject_type" jdbcType="TINYINT"/>
+            <result property="subjectScore" column="subject_score" jdbcType="TINYINT"/>
+            <result property="subjectParse" column="subject_parse" jdbcType="VARCHAR"/>
+            <result property="createdBy" column="created_by" jdbcType="VARCHAR"/>
+            <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
+            <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
+            <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="isDeleted" column="is_deleted" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id,subject_name,subject_difficult,
+        settle_name,subject_type,subject_score,
+        subject_parse,created_by,created_time,
+        update_by,update_time,is_deleted
+    </sql>
+</mapper>
