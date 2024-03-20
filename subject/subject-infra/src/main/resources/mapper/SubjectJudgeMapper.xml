@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dazhou.subject.infra.basic.mapper.SubjectJudgeMapper">
 
-    <resultMap id="BaseResultMap" type="generator.domain.SubjectJudge">
+    <resultMap id="BaseResultMap" type="com.dazhou.subject.infra.basic.entity.SubjectJudge">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="subjectId" column="subject_id" jdbcType="BIGINT"/>
             <result property="isCorrect" column="is_correct" jdbcType="TINYINT"/>

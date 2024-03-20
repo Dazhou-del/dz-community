@@ -33,6 +33,16 @@ public class SubjectLabelServiceImpl extends ServiceImpl<SubjectLabelMapper, Sub
         return subjectLabelMapper.selectList(queryWrapper);
     }
 
+    @Override
+    public List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel) {
+        return subjectLabelMapper.queryByCondition(subjectLabel);
+    }
+
+    @Override
+    public List<SubjectLabel> batchQueryById(List<Long> labelIdList) {
+        return subjectLabelMapper.batchQueryById(labelIdList);
+    }
+
 
 }
 

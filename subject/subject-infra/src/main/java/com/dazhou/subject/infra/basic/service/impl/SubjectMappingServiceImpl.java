@@ -1,10 +1,14 @@
 package com.dazhou.subject.infra.basic.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import generator.domain.SubjectMapping;
-import generator.service.SubjectMappingService;
+
+import com.dazhou.subject.infra.basic.entity.SubjectMapping;
 import com.dazhou.subject.infra.basic.mapper.SubjectMappingMapper;
+import com.dazhou.subject.infra.basic.service.SubjectMappingService;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
+import java.util.List;
 
 /**
 * @author da zhou
@@ -13,8 +17,14 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class SubjectMappingServiceImpl extends ServiceImpl<SubjectMappingMapper, SubjectMapping>
-    implements SubjectMappingService{
+    implements SubjectMappingService {
 
+    @Resource
+    private SubjectMappingMapper subjectMappingMapper;
+    @Override
+    public List<SubjectMapping> queryLabelId(SubjectMapping subjectMapping) {
+        return subjectMappingMapper.queryDistinctLabelId(subjectMapping);
+    }
 }
 
 

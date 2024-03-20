@@ -34,4 +34,10 @@ public interface SubjectCategoryDomainService {
      * @return
      */
     List<SubjectCategoryBo> queryCategoryByPrimary(SubjectCategoryBo subjectCategoryBo);
+
+    /**
+     * 根据id删除
+     * @param id
+     */
+    void removeById(Long id);
 }

@@ -1,7 +1,8 @@
 package com.dazhou.subject.infra.basic.mapper;
 
-import generator.domain.SubjectRadio;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.dazhou.subject.infra.basic.entity.SubjectRadio;
 
 /**
 * @author da zhou

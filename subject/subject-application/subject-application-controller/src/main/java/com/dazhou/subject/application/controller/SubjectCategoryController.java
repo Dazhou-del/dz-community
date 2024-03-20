@@ -11,6 +11,8 @@ import com.dazhou.subject.infra.basic.service.impl.SubjectCategoryServiceImpl;
 import com.google.common.base.Preconditions;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
@@ -31,8 +33,7 @@ public class SubjectCategoryController {
     @Resource
     private SubjectCategoryDomainService subjectCategoryDomainService;
 
-    @Resource
-    private SubjectCategoryServiceImpl subjectCategoryService;
+
 
     /**
      * 新增分类
@@ -75,7 +76,7 @@ public class SubjectCategoryController {
             if (log.isInfoEnabled()){
                 log.info("SubjectCategoryController.delete.Id:{}", subjectCategoryDto.getId());
             }
-        subjectCategoryService.removeById(Id);
+            subjectCategoryDomainService.removeById(Id);
         return Result.ok();
         } catch (Exception e) {
             return Result.fail("删除失败");

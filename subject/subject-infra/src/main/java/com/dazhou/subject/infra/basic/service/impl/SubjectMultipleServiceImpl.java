@@ -1,9 +1,10 @@
 package com.dazhou.subject.infra.basic.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import generator.domain.SubjectMultiple;
-import generator.service.SubjectMultipleService;
+
+import com.dazhou.subject.infra.basic.entity.SubjectMultiple;
 import com.dazhou.subject.infra.basic.mapper.SubjectMultipleMapper;
+import com.dazhou.subject.infra.basic.service.SubjectMultipleService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class SubjectMultipleServiceImpl extends ServiceImpl<SubjectMultipleMapper, SubjectMultiple>
-    implements SubjectMultipleService{
+    implements SubjectMultipleService {
 
 }
 

@@ -19,12 +19,13 @@ import java.util.List;
 * @description 针对表【subject_category(题目分类)】的数据库操作Service实现
 * @createDate 2024-03-14 23:17:45
 */
-@Service("subjectCategoryService")
+@Service("SubjectCategoryServiceImpl")
 public class SubjectCategoryServiceImpl extends ServiceImpl<SubjectCategoryMapper, SubjectCategory>
     implements SubjectCategoryService{
 
     @Resource
     private SubjectCategoryMapper subjectCategoryMapper;
+
     @Override
     public void insert(SubjectCategory subjectCategory) {
         subjectCategoryMapper.insert(subjectCategory);
@@ -43,6 +44,11 @@ public class SubjectCategoryServiceImpl extends ServiceImpl<SubjectCategoryMappe
     @Override
     public Integer querySubjectCount(Long id) {
         return subjectCategoryMapper.querySubjectCount(id);
+    }
+
+    @Override
+    public SubjectCategory queryByCategoryId(Long categoryId) {
+        return subjectCategoryMapper.selectById(categoryId);
     }
 }
 

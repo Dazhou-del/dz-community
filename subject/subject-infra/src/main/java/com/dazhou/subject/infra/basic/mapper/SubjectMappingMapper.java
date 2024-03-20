@@ -1,7 +1,10 @@
 package com.dazhou.subject.infra.basic.mapper;
 
-import generator.domain.SubjectMapping;
+
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.dazhou.subject.infra.basic.entity.SubjectMapping;
+
+import java.util.List;
 
 /**
 * @author da zhou
@@ -10,6 +13,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 * @Entity generator.domain.SubjectMapping
 */
 public interface SubjectMappingMapper extends BaseMapper<SubjectMapping> {
+    List<SubjectMapping> queryDistinctLabelId(SubjectMapping subjectMapping);
 
 }
 

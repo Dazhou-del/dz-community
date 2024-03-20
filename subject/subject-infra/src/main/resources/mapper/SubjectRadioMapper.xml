@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dazhou.subject.infra.basic.mapper.SubjectRadioMapper">
 
-    <resultMap id="BaseResultMap" type="generator.domain.SubjectRadio">
+    <resultMap id="BaseResultMap" type="com.dazhou.subject.infra.basic.entity.SubjectRadio">
             <id property="id" column="id" jdbcType="BIGINT"/>
             <result property="subjectId" column="subject_id" jdbcType="BIGINT"/>
             <result property="optionType" column="option_type" jdbcType="TINYINT"/>

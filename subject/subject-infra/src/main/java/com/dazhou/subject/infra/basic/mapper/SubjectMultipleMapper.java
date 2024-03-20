@@ -1,7 +1,7 @@
 package com.dazhou.subject.infra.basic.mapper;
 
-import generator.domain.SubjectMultiple;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.dazhou.subject.infra.basic.entity.SubjectMultiple;
 
 /**
 * @author da zhou

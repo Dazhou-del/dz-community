@@ -25,4 +25,10 @@ public interface SubjectLabelService extends IService<SubjectLabel> {
      * @param subjectLabel
      */
     List<SubjectLabel> queryLabelByCategoryId(SubjectLabel subjectLabel);
+
+
+    List<SubjectLabel> queryByCondition(SubjectLabel subjectLabel);
+
+
+    List<SubjectLabel> batchQueryById(List<Long> labelIdList);
 }

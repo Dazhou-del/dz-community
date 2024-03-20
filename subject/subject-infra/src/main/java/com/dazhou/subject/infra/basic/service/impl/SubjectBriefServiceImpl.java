@@ -1,9 +1,10 @@
 package com.dazhou.subject.infra.basic.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import generator.domain.SubjectBrief;
-import generator.service.SubjectBriefService;
+
+import com.dazhou.subject.infra.basic.entity.SubjectBrief;
 import com.dazhou.subject.infra.basic.mapper.SubjectBriefMapper;
+import com.dazhou.subject.infra.basic.service.SubjectBriefService;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,7 +14,7 @@ import org.springframework.stereotype.Service;
 */
 @Service
 public class SubjectBriefServiceImpl extends ServiceImpl<SubjectBriefMapper, SubjectBrief>
-    implements SubjectBriefService{
+    implements SubjectBriefService {
 
 }
 
