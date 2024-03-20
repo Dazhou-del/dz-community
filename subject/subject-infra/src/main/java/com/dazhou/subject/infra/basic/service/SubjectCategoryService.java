@@ -31,4 +31,5 @@ public interface SubjectCategoryService extends IService<SubjectCategory> {
     Integer querySubjectCount(Long id);
 
 
+    SubjectCategory queryByCategoryId(Long categoryId);
 }

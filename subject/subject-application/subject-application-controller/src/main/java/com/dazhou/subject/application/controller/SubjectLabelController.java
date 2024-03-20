@@ -34,7 +34,7 @@ public class SubjectLabelController {
      * @param subjectLabelDto
      */
     @PostMapping("/add")
-    public Result add(@RequestBody SubjectLabelDto subjectLabelDto){
+    public Result<Boolean> add(@RequestBody SubjectLabelDto subjectLabelDto){
         if (log.isInfoEnabled()){
             log.info("SubjectLabelController.add.subjectLabelDto:{}",subjectLabelDto);
         }
@@ -57,7 +57,7 @@ public class SubjectLabelController {
      * @param subjectLabelDto
      */
     @PostMapping("/update")
-    public Result update(@RequestBody SubjectLabelDto subjectLabelDto){
+    public Result<Boolean> update(@RequestBody SubjectLabelDto subjectLabelDto){
         if (log.isInfoEnabled()){
             log.info("SubjectLabelController.update.subjectLabelDto:{}",subjectLabelDto);
         }
@@ -80,7 +80,7 @@ public class SubjectLabelController {
      * @param subjectLabelDto
      */
     @PostMapping("/delete")
-    public Result delete(@RequestBody SubjectLabelDto subjectLabelDto){
+    public Result<Boolean> delete(@RequestBody SubjectLabelDto subjectLabelDto){
         if (log.isInfoEnabled()){
             log.info("SubjectLabelController.delete.subjectLabelDto:{}",subjectLabelDto);
         }

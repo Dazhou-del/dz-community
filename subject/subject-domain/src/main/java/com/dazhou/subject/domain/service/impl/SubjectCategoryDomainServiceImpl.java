@@ -6,7 +6,6 @@ import com.dazhou.subject.domain.entity.SubjectCategoryBo;
 import com.dazhou.subject.domain.service.SubjectCategoryDomainService;
 import com.dazhou.subject.infra.basic.entity.SubjectCategory;
 import com.dazhou.subject.infra.basic.service.SubjectCategoryService;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
@@ -70,5 +69,10 @@ public class SubjectCategoryDomainServiceImpl implements SubjectCategoryDomainSe
             log.info("SubjectCategoryController.queryPrimaryCategory.subjectCategoryBoList:{}",subjectCategoryBoList);
         }
         return subjectCategoryBoList;
+    }
+
+    @Override
+    public void removeById(Long id) {
+        subjectCategoryService.removeById(id);
     }
 }

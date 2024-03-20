@@ -33,7 +33,7 @@ public class SubjectLabelDto implements Serializable {
     /**
      * 
      */
-    private String categoryId;
+    private Long categoryId;
 
 
 

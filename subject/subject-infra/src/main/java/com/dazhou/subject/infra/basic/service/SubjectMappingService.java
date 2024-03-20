@@ -1,7 +1,9 @@
 package com.dazhou.subject.infra.basic.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import generator.domain.SubjectMapping;
+import com.dazhou.subject.infra.basic.entity.SubjectMapping;
+
+import java.util.List;
 
 /**
 * @author da zhou
@@ -9,5 +11,10 @@ import generator.domain.SubjectMapping;
 * @createDate 2024-03-18 22:32:57
 */
 public interface SubjectMappingService extends IService<SubjectMapping> {
-
+    /**
+     * 查询标签id
+     * @param subjectMapping
+     * @return
+     */
+    List<SubjectMapping> queryLabelId(SubjectMapping subjectMapping);
 }

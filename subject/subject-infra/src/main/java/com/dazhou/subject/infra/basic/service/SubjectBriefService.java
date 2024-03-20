@@ -1,7 +1,8 @@
 package com.dazhou.subject.infra.basic.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import generator.domain.SubjectBrief;
+import com.dazhou.subject.infra.basic.entity.SubjectBrief;
+
 
 /**
 * @author da zhou

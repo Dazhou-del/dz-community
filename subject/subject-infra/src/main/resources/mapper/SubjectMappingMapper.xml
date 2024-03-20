@@ -2,13 +2,13 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.dazhou.subject.infra.basic.mapper.SubjectLabelMapper">
+<mapper namespace="com.dazhou.subject.infra.basic.mapper.SubjectMappingMapper">
 
-    <resultMap id="BaseResultMap" type="com.dazhou.subject.infra.basic.entity.SubjectLabel">
+    <resultMap id="BaseResultMap" type="com.dazhou.subject.infra.basic.entity.SubjectMapping">
             <id property="id" column="id" jdbcType="BIGINT"/>
-            <result property="labelName" column="label_name" jdbcType="VARCHAR"/>
-            <result property="sortNum" column="sort_num" jdbcType="INTEGER"/>
+            <result property="subjectId" column="subject_id" jdbcType="BIGINT"/>
             <result property="categoryId" column="category_id" jdbcType="BIGINT"/>
+            <result property="labelId" column="label_id" jdbcType="BIGINT"/>
             <result property="createdBy" column="created_by" jdbcType="VARCHAR"/>
             <result property="createdTime" column="created_time" jdbcType="TIMESTAMP"/>
             <result property="updateBy" column="update_by" jdbcType="VARCHAR"/>
@@ -17,28 +17,27 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,label_name,sort_num,
-        category_id,created_by,created_time,
+        id,subject_id,category_id,
+        label_id,created_by,created_time,
         update_by,update_time,is_deleted
     </sql>
 
-    <!--查询指定行数据-->
-    <select id="queryByCondition" resultMap="BaseResultMap">
+    <select id="queryDistinctLabelId" resultMap="BaseResultMap">
         select
-        id, label_name, sort_num, created_by, created_time, update_by, is_deleted, update_time,category_id
-        from subject_label
+        distinct label_id
+        from subject_mapping
         <where>
             <if test="id != null">
                 and id = #{id}
             </if>
-            <if test="labelName != null and labelName != ''">
-                and label_name = #{labelName}
+            <if test="subjectId != null">
+                and subject_id = #{subjectId}
             </if>
             <if test="categoryId != null">
                 and category_id = #{categoryId}
             </if>
-            <if test="sortNum != null">
-                and sort_num = #{sortNum}
+            <if test="labelId != null">
+                and label_id = #{labelId}
             </if>
             <if test="createdBy != null and createdBy != ''">
                 and created_by = #{createdBy}
@@ -49,22 +48,12 @@
             <if test="updateBy != null and updateBy != ''">
                 and update_by = #{updateBy}
             </if>
-            <if test="isDeleted != null">
-                and is_deleted = #{isDeleted}
-            </if>
             <if test="updateTime != null">
                 and update_time = #{updateTime}
             </if>
+            <if test="isDeleted != null">
+                and is_deleted = #{isDeleted}
+            </if>
         </where>
     </select>
-    <select id="batchQueryById" resultMap="BaseResultMap">
-        select
-        id, label_name, sort_num,category_id, created_by, created_time, update_by, is_deleted, update_time
-        from subject_label
-        where id in
-        <foreach open="(" close=")" collection="list" item="id" separator=",">
-            #{id}
-        </foreach>
-    </select>
-
 </mapper>
