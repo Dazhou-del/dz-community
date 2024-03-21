@@ -3,12 +3,13 @@ package com.dazhou.subject.common.enums;
 import lombok.Getter;
 
 /**
- * 分类型枚举
+ * 分类类型枚举
  * @author <a href="https://github.com/Dazhou-del">Dazhou</a>
- * @create 2024-03-20 20:46
+ * @create 2024-03-20 22:15
  */
 @Getter
 public enum CategoryTypeEnum {
+
     PRIMARY(1,"岗位大类"),
     SECOND(2,"二级分类");
 
@@ -29,5 +30,4 @@ public enum CategoryTypeEnum {
         }
         return null;
     }
-
 }

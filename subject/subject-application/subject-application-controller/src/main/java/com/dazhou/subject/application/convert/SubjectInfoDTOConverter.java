@@ -1,7 +1,9 @@
 package com.dazhou.subject.application.convert;
 
+import com.dazhou.subject.application.dto.SubjectAnswerDto;
 import com.dazhou.subject.application.dto.SubjectCategoryDto;
 import com.dazhou.subject.application.dto.SubjectInfoDto;
+import com.dazhou.subject.domain.entity.SubjectAnswerBo;
 import com.dazhou.subject.domain.entity.SubjectCategoryBo;
 import com.dazhou.subject.domain.entity.SubjectInfoBo;
 import org.mapstruct.Mapper;
@@ -18,5 +20,10 @@ public interface SubjectInfoDTOConverter {
     SubjectInfoDTOConverter INSTANCE=Mappers.getMapper(SubjectInfoDTOConverter.class);
 
     SubjectInfoDto convertBoToInfo(SubjectInfoBo subjectInfoBo);
+
+    SubjectInfoBo convertToBoInfo(SubjectInfoDto subjectInfoDto);
+    List<SubjectAnswerBo> convertListToBoInfo(List<SubjectAnswerDto> subjectInfoDto);
+
+
 
 }

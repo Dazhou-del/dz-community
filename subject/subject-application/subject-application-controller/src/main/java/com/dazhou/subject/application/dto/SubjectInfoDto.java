@@ -7,12 +7,12 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * 题目信息表
  * @TableName subject_info
  */
-@TableName(value ="subject_info")
 @Data
 public class SubjectInfoDto implements Serializable {
     /**
@@ -52,9 +52,25 @@ public class SubjectInfoDto implements Serializable {
     private String subjectParse;
 
 
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
+    /**
+     * 题目答案
+     */
+    private String subjectAnswer;
 
 
+    /**
+     * 分类id
+     */
+    private List<Integer> categoryIds;
+
+    /**
+     * 标签id
+     */
+    private List<Integer> labelIds;
+
+    /**
+     * 答案选项
+     */
+    private List<SubjectAnswerDto> optionList;
 
 }

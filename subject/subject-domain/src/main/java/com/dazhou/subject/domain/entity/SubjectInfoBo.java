@@ -8,6 +8,7 @@ import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 题目信息表
@@ -53,8 +54,20 @@ public class SubjectInfoBo implements Serializable {
     private String subjectParse;
 
 
-    @TableField(exist = false)
-    private static final long serialVersionUID = 1L;
+    /**
+     * 分类id
+     */
+    private List<Integer> categoryIds;
+
+    /**
+     * 标签id
+     */
+    private List<Integer> labelIds;
+
+    /**
+     * 答案选项
+     */
+    private List<SubjectAnswerBo> optionList;
 
 
 
