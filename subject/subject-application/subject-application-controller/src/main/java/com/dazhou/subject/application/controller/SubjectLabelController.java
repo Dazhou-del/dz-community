@@ -44,9 +44,9 @@ public class SubjectLabelController {
         try {
             SubjectLabelBo subjectLabelBo = SubjectLabelDTOConverter.INSTANCE.convertDoToInfoBo(subjectLabelDto);
             subjectLabelDomainService.add(subjectLabelBo);
-            return Result.ok();
+            return Result.ok(true);
         } catch (Exception e) {
-            log.error("errMessage:{}",e.getMessage());
+            log.error("SubjectLabelController.add.error:{}",e.getMessage(),e);
             return Result.fail("新增失败");
 
         }
@@ -67,9 +67,9 @@ public class SubjectLabelController {
         try {
             SubjectLabelBo subjectLabelBo = SubjectLabelDTOConverter.INSTANCE.convertDoToInfoBo(subjectLabelDto);
             subjectLabelDomainService.update(subjectLabelBo);
-            return Result.ok();
+            return Result.ok(true);
         } catch (Exception e) {
-            log.error("errMessage:{}",e.getMessage());
+            log.error("SubjectLabelController.update.error:{}",e.getMessage(),e);
             return Result.fail("更新失败");
 
         }
@@ -88,9 +88,9 @@ public class SubjectLabelController {
         try {
             SubjectLabelBo subjectLabelBo = SubjectLabelDTOConverter.INSTANCE.convertDoToInfoBo(subjectLabelDto);
             subjectLabelDomainService.delete(subjectLabelBo);
-            return Result.ok();
+            return Result.ok(true);
         } catch (Exception e) {
-            log.error("errMessage:{}",e.getMessage());
+            log.error("SubjectLabelController.delete.error:{}",e.getMessage(),e);
             return Result.fail("删除失败");
 
         }
@@ -104,7 +104,7 @@ public class SubjectLabelController {
     @PostMapping("/queryLabelByCategoryId")
     public Result queryLabelByCategoryId(@RequestBody SubjectLabelDto subjectLabelDto){
         if (log.isInfoEnabled()){
-            log.info("SubjectLabelController.delete.subjectLabelDto:{}",subjectLabelDto);
+            log.info("SubjectLabelController.queryLabelByCategoryId.subjectLabelDto:{}",subjectLabelDto);
         }
         Preconditions.checkNotNull(subjectLabelDto.getCategoryId(),"分类Id不能为空");
         try {
@@ -113,7 +113,7 @@ public class SubjectLabelController {
             List<SubjectLabelDto> subjectLabelDtos = SubjectLabelDTOConverter.INSTANCE.convertBoToInfoDtoList(subjectLabelBos);
             return Result.ok(subjectLabelDtos);
         } catch (Exception e) {
-            log.error("errMessage:{}",e.getMessage());
+            log.error("SubjectLabelController.queryLabelByCategoryId.error:{}",e.getMessage(),e);
             return Result.fail("删除失败");
 
         }

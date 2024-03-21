@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 /**
- * 刷题模块
+ * 分类模块
  * @author <a href="https://github.com/Dazhou-del">Dazhou</a>
  * @create 2024-03-16 16:53
  */

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
+import java.util.concurrent.ConcurrentHashMap;
 
 /**
  * @author <a href="https://github.com/Dazhou-del">Dazhou</a>
@@ -25,8 +26,10 @@ public class SubjectController {
      */
     @GetMapping("/test")
     private String test(){
+
         LambdaQueryWrapper<SubjectCategory> queryWrapper = new LambdaQueryWrapper<>();
         queryWrapper.eq(SubjectCategory::getId, 1L);
+
         return subjectCategoryService.getOne(queryWrapper).getCategoryName();
     }
 
