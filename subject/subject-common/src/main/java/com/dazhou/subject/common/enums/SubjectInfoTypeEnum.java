@@ -11,7 +11,7 @@ import lombok.Getter;
 public enum SubjectInfoTypeEnum {
     RADIO(1,"单选"),
     MULTIPLE(2,"多选"),
-    BRIEF(3,"简答"),
+    BRIEF(3 ,"简答"),
     JUDGE(4,"判断");
 
     private int code;
