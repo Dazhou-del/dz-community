@@ -1,5 +1,6 @@
 package com.dazhou.subject.domain.service;
 
+import com.dazhou.subject.common.entity.PageResult;
 import com.dazhou.subject.domain.entity.SubjectInfoBo;
 
 /**
@@ -12,4 +13,11 @@ public interface SubjectInfoDomainService {
      * @param subjectInfoBo
      */
     void add(SubjectInfoBo subjectInfoBo);
+
+    /**
+     * 查询题目列表
+     * @param subjectInfoBo
+     * @return
+     */
+    PageResult<SubjectInfoBo> getSubjectPage(SubjectInfoBo subjectInfoBo);
 }

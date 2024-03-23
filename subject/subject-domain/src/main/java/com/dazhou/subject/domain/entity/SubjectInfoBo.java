@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.dazhou.subject.common.entity.PageInfo;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -16,7 +17,7 @@ import java.util.List;
  */
 @TableName(value ="subject_info")
 @Data
-public class SubjectInfoBo implements Serializable {
+public class SubjectInfoBo extends PageInfo implements Serializable {
     /**
      * 主键
      */
@@ -69,6 +70,16 @@ public class SubjectInfoBo implements Serializable {
      */
     private List<SubjectAnswerBo> optionList;
 
+
+    /**
+     * 分类id
+     */
+    private Long categoryId;
+
+    /**
+     * 标签id
+     */
+    private Long labelId;
 
 
 }

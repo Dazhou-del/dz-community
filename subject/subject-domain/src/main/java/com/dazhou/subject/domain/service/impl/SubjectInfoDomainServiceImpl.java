@@ -1,6 +1,7 @@
 package com.dazhou.subject.domain.service.impl;
 
 import cn.hutool.core.collection.CollectionUtil;
+import com.dazhou.subject.common.entity.PageResult;
 import com.dazhou.subject.common.enums.IsDeletedFlagEnum;
 import com.dazhou.subject.domain.convert.SubjectInfoConverter;
 import com.dazhou.subject.domain.entity.SubjectInfoBo;
@@ -70,5 +71,26 @@ public class SubjectInfoDomainServiceImpl implements SubjectInfoDomainService {
         }
 
 
+    }
+
+    @Override
+    public PageResult<SubjectInfoBo> getSubjectPage(SubjectInfoBo subjectInfoBo) {
+        PageResult<SubjectInfoBo> pageResult = new PageResult<>();
+        pageResult.setPageNo(subjectInfoBo.getPageNo());
+        pageResult.setPageSize(subjectInfoBo.getPageSize());
+        //start固定算法
+        int start = (subjectInfoBo.getPageNo() - 1) * subjectInfoBo.getPageSize();
+        SubjectInfo subjectInfo = SubjectInfoConverter.INSTANCE.convertBotoInfo(subjectInfoBo);
+        int count=subjectInfoService.countByCondition(subjectInfo,subjectInfoBo.getCategoryId(),subjectInfoBo.getLabelId());
+        //无数据直接返回
+        if (count == 0) {
+            return pageResult;
+        }
+        List<SubjectInfo> subjectInfoList = subjectInfoService.queryPage(subjectInfo, subjectInfoBo.getCategoryId()
+                , subjectInfoBo.getLabelId(), start, subjectInfoBo.getPageSize());
+        List<SubjectInfoBo> subjectInfoBoList = SubjectInfoConverter.INSTANCE.convertListInfoToBo(subjectInfoList);
+        pageResult.setTotal(count);
+        pageResult.setRecords(subjectInfoBoList);
+        return pageResult;
     }
 }
