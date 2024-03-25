@@ -5,6 +5,7 @@ import com.dazhou.subject.common.enums.SubjectInfoTypeEnum;
 import com.dazhou.subject.domain.convert.BriefSubjectConverter;
 import com.dazhou.subject.domain.entity.SubjectAnswerBo;
 import com.dazhou.subject.domain.entity.SubjectInfoBo;
+import com.dazhou.subject.domain.entity.SubjectOptionBO;
 import com.dazhou.subject.infra.basic.entity.SubjectBrief;
 import com.dazhou.subject.infra.basic.service.SubjectBriefService;
 import org.springframework.stereotype.Component;
@@ -37,5 +38,15 @@ public class BriefHandler implements SubjectTypeHandler{
         subjectBrief.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
         subjectBriefService.save(subjectBrief);
 
+    }
+
+    @Override
+    public SubjectOptionBO query(int subjectId) {
+        SubjectBrief subjectBrief = new SubjectBrief();
+        subjectBrief.setSubjectId(Long.valueOf(subjectId));
+        SubjectBrief result = subjectBriefService.queryByCondition(subjectBrief);
+        SubjectOptionBO subjectOptionBO = new SubjectOptionBO();
+        subjectOptionBO.setSubjectAnswer(result.getSubjectAnswer());
+        return subjectOptionBO;
     }
 }

@@ -84,7 +84,32 @@ public class SubjectInfoController {
             return Result.ok(result);
         } catch (Exception e) {
             log.error("SubjectInfoController.getSubjectPage.error:{}", e.getMessage(), e);
-            return Result.fail("查询题目列表");
+            return Result.fail("查询题目列表失败");
+        }
+
+    }
+
+
+    /**
+     *查询题目详情
+     *
+     * @param subjectInfoDto
+     * @return
+     */
+    @PostMapping("/querySubjectInfo")
+    public Result<SubjectInfoDto> querySubjectInfo(@RequestBody SubjectInfoDto subjectInfoDto) {
+        try {
+            if (log.isInfoEnabled()) {
+                log.info("SubjectInfoController.querySubjectInfo.SubjectInfoDto:{}", subjectInfoDto);
+            }
+            Preconditions.checkNotNull(subjectInfoDto.getId(), "题目Id不能为空");
+
+            SubjectInfoBo subjectInfoBo = SubjectInfoDTOConverter.INSTANCE.convertToBo(subjectInfoDto);
+            SubjectInfoBo result=subjectInfoDomainService.querySubjectInfo(subjectInfoBo);
+            return Result.ok(result);
+        } catch (Exception e) {
+            log.error("SubjectInfoController.getSubjectquerySubjectInfoPage.error:{}", e.getMessage(), e);
+            return Result.fail("查询题目详情失败");
         }
 
     }

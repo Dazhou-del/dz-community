@@ -3,6 +3,8 @@ package com.dazhou.subject.infra.basic.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.dazhou.subject.infra.basic.entity.SubjectRadio;
 
+import java.util.List;
+
 
 /**
 * @author da zhou
@@ -11,4 +13,5 @@ import com.dazhou.subject.infra.basic.entity.SubjectRadio;
 */
 public interface SubjectRadioService extends IService<SubjectRadio> {
 
+    List<SubjectRadio> queryByCondition(SubjectRadio subjectRadio);
 }

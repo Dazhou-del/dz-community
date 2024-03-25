@@ -85,4 +85,9 @@ public class SubjectInfoDto extends PageInfo implements Serializable {
      */
     private Long labelId;
 
+    /**
+     * 标签名
+     */
+    private List<String> labelNames;
+
 }

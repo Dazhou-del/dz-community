@@ -7,6 +7,8 @@ import com.dazhou.subject.infra.basic.mapper.SubjectBriefMapper;
 import com.dazhou.subject.infra.basic.service.SubjectBriefService;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
+
 /**
 * @author da zhou
 * @description 针对表【subject_brief(简答题)】的数据库操作Service实现
@@ -16,6 +18,13 @@ import org.springframework.stereotype.Service;
 public class SubjectBriefServiceImpl extends ServiceImpl<SubjectBriefMapper, SubjectBrief>
     implements SubjectBriefService {
 
+    @Resource
+    private SubjectBriefMapper subjectBriefMapper;
+
+    @Override
+    public SubjectBrief queryByCondition(SubjectBrief subjectBrief) {
+        return subjectBriefMapper.queryAllByLimit(subjectBrief);
+    }
 }
 
 

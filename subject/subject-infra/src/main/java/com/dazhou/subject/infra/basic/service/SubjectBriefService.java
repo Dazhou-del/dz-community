@@ -11,4 +11,10 @@ import com.dazhou.subject.infra.basic.entity.SubjectBrief;
 */
 public interface SubjectBriefService extends IService<SubjectBrief> {
 
+    /**
+     * 查询指定行记录
+     * @param subjectBrief
+     * @return
+     */
+    SubjectBrief queryByCondition(SubjectBrief subjectBrief);
 }
