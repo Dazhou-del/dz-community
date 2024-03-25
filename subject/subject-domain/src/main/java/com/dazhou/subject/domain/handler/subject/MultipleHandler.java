@@ -3,7 +3,9 @@ package com.dazhou.subject.domain.handler.subject;
 import com.dazhou.subject.common.enums.SubjectInfoTypeEnum;
 
 import com.dazhou.subject.domain.convert.MultipleSubjectConverter;
+import com.dazhou.subject.domain.entity.SubjectAnswerBo;
 import com.dazhou.subject.domain.entity.SubjectInfoBo;
+import com.dazhou.subject.domain.entity.SubjectOptionBO;
 import com.dazhou.subject.infra.basic.entity.SubjectMapping;
 import com.dazhou.subject.infra.basic.entity.SubjectMultiple;
 import com.dazhou.subject.infra.basic.service.SubjectMappingService;
@@ -39,5 +41,16 @@ public class MultipleHandler implements SubjectTypeHandler{
             subjectSList.add(subjectMultiple);
         });
         subjectMultipleService.saveBatch(subjectSList);
+    }
+
+    @Override
+    public SubjectOptionBO query(int subjectId) {
+        SubjectMultiple subjectMultiple = new SubjectMultiple();
+        subjectMultiple.setSubjectId(Long.valueOf(subjectId));
+        List<SubjectMultiple> result = subjectMultipleService.queryByCondition(subjectMultiple);
+        List<SubjectAnswerBo> subjectAnswerBOList = MultipleSubjectConverter.INSTANCE.convertEntityToBoList(result);
+        SubjectOptionBO subjectOptionBO = new SubjectOptionBO();
+        subjectOptionBO.setOptionList(subjectAnswerBOList);
+        return subjectOptionBO;
     }
 }

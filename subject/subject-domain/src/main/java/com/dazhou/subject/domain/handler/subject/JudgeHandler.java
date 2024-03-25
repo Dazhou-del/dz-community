@@ -1,13 +1,16 @@
 package com.dazhou.subject.domain.handler.subject;
 
 import com.dazhou.subject.common.enums.SubjectInfoTypeEnum;
+import com.dazhou.subject.domain.convert.JudgeSubjectConverter;
 import com.dazhou.subject.domain.entity.SubjectAnswerBo;
 import com.dazhou.subject.domain.entity.SubjectInfoBo;
+import com.dazhou.subject.domain.entity.SubjectOptionBO;
 import com.dazhou.subject.infra.basic.entity.SubjectJudge;
 import com.dazhou.subject.infra.basic.service.SubjectJudgeService;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * 判断题handler
@@ -32,6 +35,17 @@ public class JudgeHandler implements SubjectTypeHandler{
         subjectJudge.setSubjectId(subjectInfoBo.getId());
         subjectJudge.setIsCorrect(subjectAnswerBO.getIsCorrect());
         subjectJudgeService.save(subjectJudge);
+    }
+
+    @Override
+    public SubjectOptionBO query(int subjectId) {
+        SubjectJudge subjectJudge = new SubjectJudge();
+        subjectJudge.setSubjectId(Long.valueOf(subjectId));
+        List<SubjectJudge> result = subjectJudgeService.queryByCondition(subjectJudge);
+        List<SubjectAnswerBo> subjectAnswerBOList = JudgeSubjectConverter.INSTANCE.convertEntityToBoList(result);
+        SubjectOptionBO subjectOptionBO = new SubjectOptionBO();
+        subjectOptionBO.setOptionList(subjectAnswerBOList);
+        return subjectOptionBO;
     }
 
 }

@@ -33,4 +33,6 @@ public class HandlerFactory implements InitializingBean {
             handlerMap.put(subjectTypeHandler.getHandler(),subjectTypeHandler);
         });
     }
+
+
 }

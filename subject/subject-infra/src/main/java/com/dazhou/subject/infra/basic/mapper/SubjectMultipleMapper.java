@@ -3,6 +3,8 @@ package com.dazhou.subject.infra.basic.mapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.dazhou.subject.infra.basic.entity.SubjectMultiple;
 
+import java.util.List;
+
 /**
 * @author da zhou
 * @description 针对表【subject_multiple(多选题信息表)】的数据库操作Mapper
@@ -11,6 +13,7 @@ import com.dazhou.subject.infra.basic.entity.SubjectMultiple;
 */
 public interface SubjectMultipleMapper extends BaseMapper<SubjectMultiple> {
 
+    List<SubjectMultiple> queryAllByLimit(SubjectMultiple subjectMultiple);
 }
 
 

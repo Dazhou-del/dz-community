@@ -2,6 +2,7 @@ package com.dazhou.subject.domain.convert;
 
 import com.dazhou.subject.domain.entity.SubjectInfoBo;
 import com.dazhou.subject.domain.entity.SubjectLabelBo;
+import com.dazhou.subject.domain.entity.SubjectOptionBO;
 import com.dazhou.subject.infra.basic.entity.SubjectInfo;
 import com.dazhou.subject.infra.basic.entity.SubjectLabel;
 import org.mapstruct.Mapper;
@@ -21,7 +22,7 @@ public interface SubjectInfoConverter {
 
     List<SubjectInfoBo> convertListInfoToBo(List<SubjectInfo> subjectInfoList);
 
-
+    SubjectInfoBo convertOptionAndInfoToBo(SubjectOptionBO subjectOptionBO, SubjectInfo subjectInfo);
 
 
 

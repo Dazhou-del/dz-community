@@ -12,6 +12,7 @@ import com.dazhou.subject.infra.basic.entity.SubjectBrief;
 */
 public interface SubjectBriefMapper extends BaseMapper<SubjectBrief> {
 
+    SubjectBrief queryAllByLimit(SubjectBrief subjectBrief);
 }
 
 

@@ -2,6 +2,7 @@ package com.dazhou.subject.domain.handler.subject;
 
 import com.dazhou.subject.common.enums.SubjectInfoTypeEnum;
 import com.dazhou.subject.domain.entity.SubjectInfoBo;
+import com.dazhou.subject.domain.entity.SubjectOptionBO;
 
 /**
  * @author <a href="https://github.com/Dazhou-del">Dazhou</a>
@@ -20,4 +21,9 @@ public interface SubjectTypeHandler {
      * @param subjectInfoBo
      */
     void addSubject(SubjectInfoBo subjectInfoBo);
+
+    /**
+     * 根据id查询
+     */
+    SubjectOptionBO query(int subjectId);
 }
