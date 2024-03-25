@@ -11,6 +11,7 @@ import com.dazhou.subject.domain.service.SubjectInfoDomainService;
 import com.dazhou.subject.infra.basic.service.SubjectInfoService;
 import com.google.common.base.Preconditions;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,6 +41,7 @@ public class SubjectInfoController {
      * @return
      */
     @PostMapping("/add")
+
     public Result add(@RequestBody SubjectInfoDto subjectInfoDto) {
         try {
             if (log.isInfoEnabled()) {

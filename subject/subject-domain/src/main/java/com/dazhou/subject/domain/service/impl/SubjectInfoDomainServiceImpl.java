@@ -16,6 +16,7 @@ import com.dazhou.subject.infra.basic.service.SubjectLabelService;
 import com.dazhou.subject.infra.basic.service.SubjectMappingService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
 import java.util.LinkedList;
@@ -43,12 +44,14 @@ public class SubjectInfoDomainServiceImpl implements SubjectInfoDomainService {
     private SubjectLabelService subjectLabelService;
 
     @Override
+    @Transactional(rollbackFor = Exception.class)
     public void add(SubjectInfoBo subjectInfoBo) {
         try {
             if (log.isInfoEnabled()) {
                 log.info("SubjectInfoDomainServiceImpl.add.subjectInfoBo:{}", subjectInfoBo);
             }
             SubjectInfo subjectInfo = SubjectInfoConverter.INSTANCE.convertBotoInfo(subjectInfoBo);
+            subjectInfo.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
             subjectInfoService.save(subjectInfo);
 
             //策略模式+工厂
