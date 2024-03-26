@@ -113,9 +113,10 @@ public class SubjectInfoDomainServiceImpl implements SubjectInfoDomainService {
         SubjectMapping subjectMapping = new SubjectMapping();
         subjectMapping.setSubjectId(subjectInfo.getId());
         subjectMapping.setIsDeleted(IsDeletedFlagEnum.UN_DELETED.getCode());
+        //查询题目映射表
         List<SubjectMapping> mappingList = subjectMappingService.queryLabelId(subjectMapping);
         List<Long> labelIdList = mappingList.stream().map(SubjectMapping::getLabelId).collect(Collectors.toList());
-
+        //查询题目标签
         List<SubjectLabel> labelList = subjectLabelService.batchQueryById(labelIdList);
         List<String> labelNameList = labelList.stream().map(SubjectLabel::getLabelName).collect(Collectors.toList());
         bo.setLabelNames(labelNameList);
