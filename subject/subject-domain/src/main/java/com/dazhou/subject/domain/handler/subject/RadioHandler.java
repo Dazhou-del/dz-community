@@ -15,6 +15,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
+ * 单选题Handler
  * @author <a href="https://github.com/Dazhou-del">Dazhou</a>
  * @create 2024-03-21 10:09
  */
