@@ -10,6 +10,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>subject</module>
+        <module>dz-community-oss</module>
     </modules>
 
     <properties>

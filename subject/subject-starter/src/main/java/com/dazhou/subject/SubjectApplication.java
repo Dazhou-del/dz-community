@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 /**
  * 刷题微服务启动类
+ *
  * @author <a href="https://github.com/Dazhou-del">Dazhou</a>
  * @create 2024-03-14 21:19
  */
