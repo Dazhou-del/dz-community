@@ -14,30 +14,29 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MinioConfig {
     /**
-     * Minio地址
+     * minioUrl
      */
     @Value("${minio.url}")
     private String url;
 
     /**
-     * 用户账号
+     * minio账户
      */
     @Value("${minio.accessKey}")
     private String accessKey;
 
     /**
-     * 用户密码
+     * minio密码
      */
     @Value("${minio.secretKey}")
     private String secretKey;
 
     /**
-     * 获取Minio客户端
-     *
-     * @return
+     * 构造minioClient
      */
     @Bean
     public MinioClient getMinioClient() {
         return MinioClient.builder().endpoint(url).credentials(accessKey, secretKey).build();
     }
+
 }

@@ -86,8 +86,9 @@ public class MinioUtil {
      * @throws Exception
      */
     public List<String> getAllBucket() throws Exception {
-        List<Bucket> bucketList = minioClient.listBuckets();
-        return bucketList.stream().map(Bucket::name).collect(Collectors.toList());
+        List<Bucket> buckets = minioClient.listBuckets();
+        return buckets.stream().map(Bucket::name).collect(Collectors.toList());
+
     }
 
     /**

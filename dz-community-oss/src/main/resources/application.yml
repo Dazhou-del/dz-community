@@ -1,2 +1,10 @@
 server:
   port: 3500
+jasypt:
+  encryptor:
+    #该密钥只用来生成密文使用，打包时要删掉，否则容易被别人看到密钥来破解密文
+    password: dazhou
+minio:
+  url: http://192.168.150.101:9000
+  accessKey: ENC(Ua2VtWrpgYCPnnrpArwNDhXbdtQaUYXV)
+  secretKey: ENC(Ua2VtWrpgYCPnnrpArwNDhXbdtQaUYXV)
