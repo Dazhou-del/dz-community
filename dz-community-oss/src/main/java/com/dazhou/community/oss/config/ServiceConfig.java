@@ -4,6 +4,7 @@ import com.dazhou.community.oss.adapter.StorageAdapter;
 import com.dazhou.community.oss.adapter.AliYunStorageAdapter;
 import com.dazhou.community.oss.adapter.MinoStorageAdapter;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -14,12 +15,14 @@ import org.springframework.context.annotation.Configuration;
  * @create 2024-04-06 16:18
  */
 @Configuration
+@RefreshScope
 public class ServiceConfig {
 
     @Value("${oss.serviceName}")
     private String serviceName;
 
     @Bean
+    @RefreshScope
     public  StorageAdapter getStorageService() {
         if ("minio".equals(serviceName)) {
             return new MinoStorageAdapter();
