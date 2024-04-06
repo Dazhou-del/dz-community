@@ -1,8 +1,7 @@
 package com.dazhou.community.oss.controller;
 
 import com.dazhou.community.oss.entity.FileInfo;
-import com.dazhou.community.oss.service.StorageService;
-import com.dazhou.community.oss.util.MinioUtil;
+import com.dazhou.community.oss.service.FileService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,17 +18,17 @@ import java.util.List;
 public class MinioController {
 
     @Resource
-    private StorageService minoStorageService;
+    private FileService fileService;
 
     @RequestMapping("/getBucketAllFile")
-    public List<FileInfo> getBucketAllFile() {
-        List<FileInfo> fileInfoList = minoStorageService.getBucketAllFile("dazhou");
+    public List<FileInfo> getBucketAllFile() throws Exception {
+        List<FileInfo> fileInfoList = fileService.getBucketAllFile("dazhou");
         return fileInfoList;
     }
 
     @RequestMapping("/testGetAllBuckets")
     public String testGetAllBuckets() {
-        List<String> allBucket = minoStorageService.getAllBucket();
+        List<String> allBucket = fileService.getAllBucket();
         return allBucket.get(0);
     }
 }

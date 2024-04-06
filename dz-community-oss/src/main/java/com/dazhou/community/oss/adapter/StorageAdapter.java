@@ -1,4 +1,4 @@
-package com.dazhou.community.oss.service;
+package com.dazhou.community.oss.adapter;
 
 import com.dazhou.community.oss.entity.FileInfo;
 import org.springframework.web.multipart.MultipartFile;
@@ -11,7 +11,7 @@ import java.util.List;
  * @author <a href="https://github.com/Dazhou-del">Dazhou</a>
  * @create 2024-04-06 2:57
  */
-public interface StorageService {
+public interface StorageAdapter {
     /**
      * 创建桶
      *

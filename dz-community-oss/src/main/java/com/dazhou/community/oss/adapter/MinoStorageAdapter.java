@@ -1,10 +1,8 @@
-package com.dazhou.community.oss.service.impl;
+package com.dazhou.community.oss.adapter;
 
 import com.dazhou.community.oss.entity.FileInfo;
-import com.dazhou.community.oss.service.StorageService;
 import com.dazhou.community.oss.util.MinioUtil;
 import lombok.SneakyThrows;
-import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.annotation.Resource;
@@ -16,8 +14,7 @@ import java.util.List;
  * @author <a href="https://github.com/Dazhou-del">Dazhou</a>
  * @create 2024-04-06 3:00
  */
-@Service("minoStorageService")
-public class MinoStorageService implements StorageService {
+public class MinoStorageAdapter implements StorageAdapter {
 
     @Resource
     private MinioUtil minioUtil;

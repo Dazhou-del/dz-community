@@ -8,3 +8,5 @@ minio:
   url: http://192.168.150.101:9000
   accessKey: ENC(Ua2VtWrpgYCPnnrpArwNDhXbdtQaUYXV)
   secretKey: ENC(Ua2VtWrpgYCPnnrpArwNDhXbdtQaUYXV)
+oss:
+  serviceName: aliyun
