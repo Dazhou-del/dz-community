@@ -1,6 +1,6 @@
 spring:
   application:
-    name: dz-community-oss
+    name: dz-community-gateway
   profiles:
     active: dev
   cloud:
