@@ -11,6 +11,17 @@
     <modules>
         <module>subject</module>
         <module>dz-community-oss</module>
+        <module>auth</module>
+        <module>gateWay</module>
+        <module>auth/auth-application</module>
+        <module>auth/auth-api</module>
+        <module>auth/auth-common</module>
+        <module>auth/auth-dmain</module>
+        <module>auth/auth-infra</module>
+        <module>auth/auth-starter</module>
+        <module>auth/auth-application/auth-application-controller</module>
+        <module>auth/auth-application/auth-application-job</module>
+        <module>auth/auth-application/auth-application-mq</module>
     </modules>
 
     <properties>
